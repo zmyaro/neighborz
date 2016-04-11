@@ -17,6 +17,12 @@ window.onload = function () {
 	document.getElementById('aboutBtn').onclick = function (e) {
 		alert('NeighborZ explores prejudice and segregation based on tolerence of those we perceive as different from us.  As tolerance of neighbors who are different decreases, AIs fairly consistently end up clustering into segregated neighborhoods, sometimes even when they are 70% or 80% tolerant.');
 	}
+	document.getElementById('widthInput').oninput = 
+	document.getElementById('heightInput').oninput = function () {
+		grid.width = parseInt(document.getElementById('widthInput').value);
+		grid.height = parseInt(document.getElementById('heightInput').value);
+		resizeGrid();
+	};
 	document.getElementById('agentTypesInput').oninput = function (e) {
 		agentTypes = parseInt(e.target.value);
 	};
@@ -52,6 +58,9 @@ function resizeGrid() {
 	var ctx = grid.elem.getContext('2d');
 	ctx.strokeStyle = 'rgba(0,0,0,0.5)';
 	for (var r = 0; r < grid.height; r++) {
+		if (typeof grid[r] === 'undefined') {
+			grid[r] = new Array(grid.width);
+		}
 		for (var c = 0; c < grid.width; c++) {
 			ctx.strokeRect(
 				r * grid.cellSize,
@@ -68,10 +77,11 @@ function resizeGrid() {
 function initAgents() {
 	
 	// Delete the old agents.
-	for (var r = 0; r < grid.height; r++) {
-		for (var c = 0; c < grid.width; c++) {
+	for (var r = 0; r < grid.length; r++) {
+		for (var c = 0; c < grid[r].length; c++) {
 			if (typeof grid[r][c] !== 'undefined') {
 				grid[r][c].destroy();
+				grid[r][c] = undefined;
 			}
 		}
 	}

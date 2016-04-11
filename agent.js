@@ -23,7 +23,7 @@ Agent.UNHAPPY_COLOR = 'red';
 
 Agent.prototype = {
 	destroy: function () {
-		document.body.removeChild(this.elem);
+		this.elem.parentElement.removeChild(this.elem);
 	},
 	
 	get type() {
