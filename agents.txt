@@ -1,0 +1,16 @@
+1. Fill a checkerboard with agents (50/50 split)
+2. Delete the four corners.
+3. Delete twenty more at random.
+4. Add five back in at random.
+
+Each agent wants...
+• If it has only one or two neighbors, it wants one of them to share its type.
+• For three, four, or five, share types with two.
+• For six, seven, or eight, share types with three.
+• Empty squares are fine.
+
+On each step, each agent...
+• Moves to an empty square so that it is satisfied.
+• Moves to the nearest such square.
+• Or, moves to any such square at random.
+• Agents processed in row-major order.
