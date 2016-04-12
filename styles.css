@@ -21,14 +21,14 @@ select {
 }
 
 #gridCanvas {
-	position: fixed;
+	position: absolute;
 	left: 0;
 	top: 0;
 	display: none;
 }
 
 .agent {
-	position: fixed;
+	position: absolute;
 	left: 0;
 	top: 0;
 	
