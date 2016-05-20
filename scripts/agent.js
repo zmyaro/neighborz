@@ -9,17 +9,24 @@ function Agent(x, y, type) {
 	this.moveTo(this._x, this._y);
 	this.type = type;
 	this.size = grid.cellSize;
-	document.body.appendChild(this.elem);
+	document.getElementById('grid').appendChild(this.elem);
 }
 
 Agent.TYPE_COLORS = [
-	'orange',
-	'blue',
-	'magenta',
-	'yellow'
+	'#8e24aa', // Purple
+	'#039be5', // Blue
+	'#ad1457', // Red
+	'#00897b', // Teal
+	'#fb8c00' // Yellow-orange
 ];
 Agent.HAPPY_COLOR = 'lime';
 Agent.UNHAPPY_COLOR = 'red';
+Agent.HAPPY_FACE = '&#x263a;';
+Agent.UNHAPPY_FACE = '&#x2639;';
+Agent.HAPPY_SIZE = '42px';
+Agent.UNHAPPY_SIZE = '28px';
+Agent.HAPPY_PADDING = '0';
+Agent.UNHAPPY_PADDING = '13px';
 
 Agent.prototype = {
 	destroy: function () {
@@ -54,10 +61,16 @@ Agent.prototype = {
 	
 	checkHappiness: function () {
 		if (this.checkHappinessAt(this.x, this.y)) {
-			this.elem.style.borderColor = Agent.HAPPY_COLOR;
+			//this.elem.style.borderColor = Agent.HAPPY_COLOR;
+			this.elem.innerHTML = Agent.HAPPY_FACE;
+			this.elem.style.fontSize = Agent.HAPPY_SIZE;
+			this.elem.style.paddingTop = Agent.HAPPY_PADDING;
 			return true;
 		} else {
-			this.elem.style.borderColor = Agent.UNHAPPY_COLOR;
+			//this.elem.style.borderColor = Agent.UNHAPPY_COLOR;
+			this.elem.innerHTML = Agent.UNHAPPY_FACE;
+			this.elem.style.fontSize = Agent.UNHAPPY_SIZE;
+			this.elem.style.paddingTop = Agent.UNHAPPY_PADDING;
 			return false;
 		}
 	},

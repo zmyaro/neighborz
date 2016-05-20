@@ -41,8 +41,10 @@ window.onload = function () {
 	document.getElementById('playPauseBtn').onclick = function () {
 		playing = !playing;
 		if (playing) {
+			this.innerText = this.textContent = 'Stop';
 			runStep();
 		} else {
+			this.innerText = this.textContent = 'Start';
 			clearTimeout(timer);
 		}
 	};
@@ -122,6 +124,9 @@ function initAgents() {
 			i--;
 		}
 	}
+	
+	// Show their statuses.
+	checkStatus();
 }
 
 function checkStatus() {

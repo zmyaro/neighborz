@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Neighborhood</title>
-		<link rel="stylesheet" type="text/css" href="styles.css" />
-		<script type="text/javascript" src="agent.js"></script>
-		<script type="text/javascript" src="grid.js"></script>
+		<title>NeighborZ</title>
+		
+		<link rel="stylesheet" type="text/css" href="styles/material-elements.css" />
+		<link rel="stylesheet" type="text/css" href="styles/material-depth.css" />
+		<link rel="stylesheet" type="text/css" href="styles/styles.css" />
+		
+		<script type="text/javascript" src="scripts/material-touch.js"></script>
+		<script type="text/javascript" src="scripts/agent.js"></script>
+		<script type="text/javascript" src="scripts/grid.js"></script>
 	</head>
 	<body>
-		<div id="toolbar">
+		<div id="toolbar" class="z1">
 			<button id="aboutBtn">?</button>
-			<label for="widthInput">
-				<input type="number" id="widthInput" value="10" min="2" max="999" />
-			</label>
-			<label for="heightInput">
-				<input type="number" id="heightInput" value="10" min="2" max="999" />
-			</label>
-			|
-			<label for="agentTypesInput">
-				Types:
-				<input type="number" id="agentTypesInput" value="2" min="2" max="4" />
-			</label>
-			|
-			<button id="restartBtn">Restart</button>
-			<button id="checkStatusBtn">Check status</button>
-			<button id="runBtn">Step</button>
-			<button id="playPauseBtn">&#x25BA;&#10074;&#10074;</button>
-			|
-			<label for="toleranceInput">
-				Tolerance:
-				<input type="range" id="toleranceInput" value="0.6" min="0" max="1" step="0.1" />
-			</label>
+			<h1>NeighborZ</h1>
+			<section>
+				<label for="widthInput">
+					<input type="number" id="widthInput" value="10" min="2" max="999" />
+				</label>
+				&times;
+				<label for="heightInput">
+					<input type="number" id="heightInput" value="10" min="2" max="999" />
+				</label>
+			</section>
+			<section>
+				<label for="agentTypesInput">
+					Types:
+					<input type="number" id="agentTypesInput" value="2" min="2" max="4" />
+				</label>
+			</section>
+			<section>
+				<label for="toleranceInput">
+					Tolerance:
+					<input type="range" id="toleranceInput" value="0.6" min="0" max="1" step="0.1" />
+				</label>
+			</section>
+			<section>
+				<button id="restartBtn">Restart</button>
+				<button id="checkStatusBtn">Check status</button>
+				<button id="runBtn">Step</button>
+				<button id="playPauseBtn">Start</button>
+			</section>
 		</div>
+		<div id="grid"></div>
 		<canvas id="gridCanvas"></canvas>
 	</body>
 </html>
