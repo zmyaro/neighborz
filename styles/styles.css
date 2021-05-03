@@ -83,3 +83,12 @@ section {
 	     -o-transition-duration: 0.5s;
 	        transition-duration: 0.5s;
 }
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #121212;
+	}
+	#toolbar {
+		background-color: rgba(38, 50, 56, 0.95);
+	}
+}
